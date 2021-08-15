@@ -9,6 +9,8 @@ import 'package:movieapp/application/movie/movie_form/movie_form_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerWidget extends StatelessWidget {
+  final String text;
+  const ImagePickerWidget({required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +74,10 @@ class ImagePickerWidget extends StatelessWidget {
             : boxDecorationWithoutImage,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.add_a_photo),
-                SizedBox(width: 10),
-                Text("Add movie poster"),
+              children: [
+                const Icon(Icons.add_a_photo),
+                const SizedBox(width: 10),
+                Text(text),
               ],
             ),
           )

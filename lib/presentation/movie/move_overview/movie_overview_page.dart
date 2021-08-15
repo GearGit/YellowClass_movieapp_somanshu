@@ -62,13 +62,19 @@ class MoviesOverviewPage extends StatelessWidget {
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               appBar: AppBar(
                 backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+                 bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(2.0),
+                  child: Container(
+                    color: Colors.grey,
+                    height: 4.0,
+                  )),
                 title: Text(
                   'Movies Watched',
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText1!
-                      .copyWith(fontWeight: FontWeight.w400),
+                      .headline5!
+                      .copyWith(fontWeight: FontWeight.w700),
                 ),
                 actions: [
                   IconButton(

@@ -110,6 +110,7 @@ class MovieFormPageScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late String title;
+    late String imagePicketText;
     late bool editingOrNot;
 
     return Padding(
@@ -120,6 +121,7 @@ class MovieFormPageScaffold extends StatelessWidget {
             p.isEditing != c.isEditing || p.isSaving != c.isSaving,
         builder: (context, state) {
           title = state.isEditing ? 'Edit movie' : 'Add movie';
+          imagePicketText = state.isEditing ? 'Update existing movie poster' : 'Add movie poster';
           return ListView(
             children:[
               const SizedBox(height: 18),
@@ -169,7 +171,7 @@ class MovieFormPageScaffold extends StatelessWidget {
                         children: [
                           NameField(node: focusNode),
                           DirectorField(node: focusNode),
-                          ImagePickerWidget(),
+                          ImagePickerWidget(text:imagePicketText),
                           // ImagePickerWidget()
                         ],
                       ),

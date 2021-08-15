@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 
 enum AppTheme {
-  GreenLight,
-  GreenDark,
-  BlueDark,
   DefaultDark,
   DefaultLight,
-  DarkPurple
 }
 
 final appThemeData = {

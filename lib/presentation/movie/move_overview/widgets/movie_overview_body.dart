@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movieapp/application/movie/movie_watcher/movie_watcher_bloc.dart';
 import 'package:movieapp/constants.dart';
 import 'package:movieapp/domain/movies/movie.dart';
+import 'package:movieapp/presentation/movie/move_overview/widgets/empty_movie_list.dart';
 
 import '../../../../infrastructure/movie/movie_dbobj.dart';
 import 'create_failure_display_widget.dart';
@@ -34,17 +35,21 @@ class MovieOverviewBody extends StatelessWidget {
                 box.keys.forEach((element) {
                   map.add(element.toString());
                 });
-              return ListView.builder(
-                itemCount: map.length,
-                itemBuilder: (context, index) {
-                  final Movie movie = Movie.fromHiveToDomain(box.get(map[index])!);
-                  if (movie.failureOption.isSome()) {
-                    return ErrorMovieCard(movie: movie);
-                  } else {
-                    return buildMovieCard(context, movie,index);
-                  }
-                },
-                );
+                if(map.isEmpty){
+                  return const EmptyListBody();
+                }else{
+                  return ListView.builder(
+                    itemCount: map.length,
+                    itemBuilder: (context, index) {
+                      final Movie movie = Movie.fromHiveToDomain(box.get(map[index])!);
+                      if (movie.failureOption.isSome()) {
+                        return ErrorMovieCard(movie: movie);
+                      } else {
+                        return buildMovieCard(context, movie,index);
+                      }
+                    },
+                  );
+                }
               }
             );
           },
