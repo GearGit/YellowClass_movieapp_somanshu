@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:movieapp/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:movieapp/application/auth/auth_bloc.dart';
 import 'package:movieapp/presentation/routes/router.gr.dart';
+import 'package:movieapp/infrastructure/movie/movie_dbobj.dart';
 
 Future<void> showLogOutConfirmation(
     BuildContext? cxt, TextTheme textTheme) async {
@@ -39,17 +42,18 @@ Future<void> showLogOutConfirmation(
         ),
         actions: <Widget>[
           TextButton(
-            child: Text('Yes, logout'),
             onPressed: () {
+              Hive.box<MovieObj>(DB_BOX_MOVIE).clear();
               cxt.read<AuthBloc>().add(const AuthEvent.signedOut());
               AutoRouter.of(context).replace(const SignInRoute());
             },
+            child: const Text('Yes, logout'),
           ),
           TextButton(
-            child: Text('No'),
             onPressed: () {
               Navigator.of(context).pop();
             },
+            child: const Text('No'),
           ),
         ],
       );
