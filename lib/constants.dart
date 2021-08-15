@@ -1,0 +1,1 @@
+const String DB_BOX_MOVIE = "Movie";
