@@ -19,7 +19,7 @@ void main() async {
     ..init(appDocDir.path)
     ..registerAdapter(MovieObjAdapter());
   await Hive.openBox<MovieObj>(DB_BOX_MOVIE);
-  configureInjection(Environment.dev);
+  configureInjection(Environment.prod);
   runApp(AppWidget());
 }
 

@@ -11,11 +11,9 @@ Widget buildMovieCard(BuildContext context, Movie movie,int index) {
   bool isImageNull = true;
   late Uint8List uint8list;
   try{
-    uint8list = _movie.image.getOrCrash();
-    // print("\n\n buildMovieCard uint8list \n\n$uint8list");
+    uint8list = _movie.image.value;
     isImageNull = false;
   }on Exception catch(e){
-    // print("\n\not exisits nuint8list\n\n$uint8list");
     isImageNull = true;
   }
   BoxDecoration boxDecorationWithImage = BoxDecoration(

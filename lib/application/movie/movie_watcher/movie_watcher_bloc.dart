@@ -40,7 +40,7 @@ class MovieWatcherBloc
       try{
         ValueListenable<Box<MovieObj>> valueListenable = Hive.box<MovieObj>(DB_BOX_MOVIE).listenable();
         // List<Movie> map = []; 
-        print("\nn\valueListenable.value\n\n${valueListenable.value}");
+        // print("\nn\valueListenable.value\n\n${valueListenable.value}");
         yield const MovieWatcherState.loadSuccess([]);
       }on Exception catch(e){
         yield const MovieWatcherState.loadFailure(MovieFailure.unexpected());

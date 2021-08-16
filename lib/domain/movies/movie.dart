@@ -40,7 +40,7 @@ abstract class Movie implements _$Movie {
       id: movie.id.getOrCrash(),
       name: movie.name.getOrCrash(),
       director: movie.director.getOrCrash(),
-      image: movie.image.getOrCrash()
+      image: movie.image.value
     );  
   }
 

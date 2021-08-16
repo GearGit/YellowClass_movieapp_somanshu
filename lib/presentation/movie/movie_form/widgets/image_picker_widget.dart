@@ -8,51 +8,41 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:movieapp/application/movie/movie_form/movie_form_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ImagePickerWidget extends StatelessWidget {
-  final String text;
-  const ImagePickerWidget({required this.text});
+class ImagePickerWidget extends StatefulWidget {
+  final bool isEditing;
+  final Uint8List imageBytes;
+  const ImagePickerWidget({required this.isEditing,required this.imageBytes});
+
+  @override
+  _ImagePickerWidgetState createState() => _ImagePickerWidgetState();
+}
+
+class _ImagePickerWidgetState extends State<ImagePickerWidget> {
+  
+  final  ImagePicker picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
-    final  ImagePicker picker = ImagePicker();
-    late Uint8List _currentImageBytes;
-    late File _currentImage;
-    bool isImageSelected = false;
+    bool isImageSelected = widget.isEditing;
 
-    // BoxDecoration boxDecorationWithImage = BoxDecoration(
-    //             // color: Theme.of(context).bottomAppBarColor,
-    //             borderRadius: const BorderRadius.all(Radius.circular(16)),
-    //             image: DecorationImage(
-    //               image: MemoryImage(_currentImageBytes)
-    //             ),
-    //           );
-  BoxDecoration boxDecorationWithoutImage = BoxDecoration(
-                color: Theme.of(context).bottomAppBarColor,
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
-              );
     return BlocListener<MovieFormBloc, MovieFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
-        _currentImageBytes = state.movie.image.getOrCrash();
-        // _currentImage = File(image.path);
       },
       child: GestureDetector(
         onTap: () async{
           try{
             final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-            _currentImage = File(image!.path);
-            _currentImageBytes = await image.readAsBytes();
-            print("\n\nuint8list\n\n$_currentImageBytes");
-            isImageSelected = true;
             context.read<MovieFormBloc>()
-                  .add(MovieFormEvent.imageSelected(await image.readAsBytes()));
+                  .add(MovieFormEvent.imageSelected(await image!.readAsBytes()));
               
-            print("\nisImageSelected:\n$isImageSelected");
+            setState(() {
+              isImageSelected = true;
+            });
           }on Exception catch(e){
-            // setState(() {
-            isImageSelected = false;
-              print("\nisImageSelected:\n$isImageSelected");
-            // });
+            setState(() {
+              isImageSelected = false;
+            });
 
           }
         },
@@ -63,22 +53,27 @@ class ImagePickerWidget extends StatelessWidget {
           child: Container(
             height: 200,
             width: MediaQuery.of(context).size.width,
-            decoration: isImageSelected ?
-            BoxDecoration(
-                // color: Theme.of(context).bottomAppBarColor,
+            decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
                 image: DecorationImage(
-                  image: MemoryImage(_currentImageBytes)
+                  fit: BoxFit.cover,
+                  image: MemoryImage(isImageSelected ? widget.imageBytes: context.read<MovieFormBloc>().state.movie.image.value)
                 ),
-              )
-            : boxDecorationWithoutImage,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.add_a_photo),
-                const SizedBox(width: 10),
-                Text(text),
-              ],
+              ),
+            child: 
+            Container(
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(0, 0, 0, 0.6),
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const[
+                  Icon(Icons.add_a_photo),
+                  SizedBox(width: 10),
+                  Text('Movie poster'),
+                ],
+              ),
             ),
           )
         ),

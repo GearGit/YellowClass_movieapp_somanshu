@@ -1,6 +1,8 @@
+import 'dart:typed_data';
+
+import 'package:dartz/dartz.dart' as _dartz;
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/application/movie/movie_form/movie_form_bloc.dart';
@@ -11,15 +13,23 @@ import 'package:movieapp/presentation/movie/movie_form/widgets/name_field_widget
 
 import '../../../injection.dart';
 
-class MovieFormPage extends StatelessWidget {
-  final Movie? editedMovie;
-  const MovieFormPage({Key? key, this.editedMovie}) : super(key: key);
 
+class MovieFormPage extends StatefulWidget {
+  final Movie? editedMovie;
+  MovieFormPage({Key? key,this.editedMovie}) : super(key: key);
+
+  @override
+  _MovieFormPageState createState() {
+    return _MovieFormPageState();
+  }
+}
+
+class _MovieFormPageState extends State<MovieFormPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<MovieFormBloc>()
-        ..add(MovieFormEvent.initialized(optionOf(editedMovie))),
+        ..add(MovieFormEvent.initialized(_dartz.optionOf(widget.editedMovie))),
       child: BlocConsumer<MovieFormBloc, MovieFormState>(
         listenWhen: (p, c) =>
             p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
@@ -50,10 +60,10 @@ class MovieFormPage extends StatelessWidget {
         },
         buildWhen: (p, c) => p.isSaving != c.isSaving,
         builder: (context, state) {
-          print("editedMovie : ${editedMovie}");
+          print("editedMovie : ${widget.editedMovie}");
           return Stack(
             children: <Widget>[
-              MovieFormPageScaffold(editedMovie: editedMovie),
+              MovieFormPageScaffold(editedMovie: widget.editedMovie),
               SavingInProgressOverlay(isSaving: state.isSaving)
             ],
           );
@@ -121,7 +131,6 @@ class MovieFormPageScaffold extends StatelessWidget {
             p.isEditing != c.isEditing || p.isSaving != c.isSaving,
         builder: (context, state) {
           title = state.isEditing ? 'Edit movie' : 'Add movie';
-          imagePicketText = state.isEditing ? 'Update existing movie poster' : 'Add movie poster';
           return ListView(
             children:[
               const SizedBox(height: 18),
@@ -171,7 +180,10 @@ class MovieFormPageScaffold extends StatelessWidget {
                         children: [
                           NameField(node: focusNode),
                           DirectorField(node: focusNode),
-                          ImagePickerWidget(text:imagePicketText),
+                          ImagePickerWidget(
+                            isEditing:state.isEditing,
+                            imageBytes:context.read<MovieFormBloc>().state.movie.image.value
+                            ),
                           // ImagePickerWidget()
                         ],
                       ),

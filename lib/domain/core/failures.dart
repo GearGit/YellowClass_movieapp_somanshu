@@ -17,7 +17,4 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.shortPassword({
     required T failedValue,
   }) = ShortPassword<T>;
-  const factory ValueFailure.invalidUint8List({
-    required T failedValue,
-  }) = InvalidUint8List<T>;
 }

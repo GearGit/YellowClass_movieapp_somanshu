@@ -36,11 +36,10 @@ class MovieDirector extends ValueObject<String> {
   const MovieDirector._(this.value);
 }
 
-class MovieImage extends ValueObject<Uint8List> {
-  @override
-  final Either<ValueFailure<Uint8List>, Uint8List> value;
-  factory MovieImage(Uint8List? input){
-    return MovieImage._(validateUint8List(input!));
+class MovieImage{
+  final Uint8List value;
+  factory MovieImage(Uint8List input){
+    return MovieImage._(input);
   }
   const MovieImage._(this.value);
 }

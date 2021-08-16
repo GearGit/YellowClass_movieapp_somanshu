@@ -21,7 +21,7 @@ class MovieRepository implements IMovieRepository {
     try {
       final Box<MovieObj> box = Hive.box<MovieObj>(DB_BOX_MOVIE);
       final MovieObj movieObj = MovieObj.fromDomainToHive(movie);
-      print("Saving movie in db \n"+movie.toString());
+      // print("Saving movie in db \n"+movie.toString());
       box.put(movieObj.id, movieObj);
       return right(unit);
     } on Exception catch (e) {
@@ -34,7 +34,7 @@ class MovieRepository implements IMovieRepository {
     try {
       final Box<MovieObj> box = Hive.box<MovieObj>(DB_BOX_MOVIE);
       final MovieObj movieObj = MovieObj.fromDomainToHive(movie);
-      print("Edit movie in db \n"+movie.toString());
+      // print("Edit movie in db \n"+movie.toString());
       box.put(movieObj.id, movieObj);
       return right(unit);
     } on Exception catch (e) {
@@ -48,7 +48,7 @@ class MovieRepository implements IMovieRepository {
       final Box<MovieObj> box = Hive.box<MovieObj>(DB_BOX_MOVIE);
       final MovieObj movieObj = MovieObj.fromDomainToHive(movie);
       
-      print("Saving movie in db \n"+movie.toString());
+      // print("Saving movie in db \n"+movie.toString());
       box.delete(movieObj.id);
       return right(unit);
     } on Exception catch (e) {

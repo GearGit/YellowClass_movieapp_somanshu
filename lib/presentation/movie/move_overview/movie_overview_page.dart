@@ -92,7 +92,7 @@ class MoviesOverviewPage extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     useRootNavigator: true,
-                    builder: (BuildContext context) => const MovieFormPage(
+                    builder: (BuildContext context) => MovieFormPage(
                       editedMovie: null,
                     ),
                   );

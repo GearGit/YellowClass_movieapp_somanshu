@@ -13,15 +13,13 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
-Either<ValueFailure<Uint8List>, Uint8List> validateUint8List(Uint8List input) {
-  if (input.isNotEmpty) {
-    return right(input);
-  } else {
-    return left(
-      ValueFailure.invalidUint8List(failedValue: input),
-    );
-  }
-}
+// Either<ValueFailure<Uint8List>, Uint8List> validateUint8List(Uint8List input) {
+//   if (input.isNotEmpty) {
+//     return right(input);
+//   } else {
+//     return left(input);
+//   }
+// }
 
 Either<ValueFailure<String>, String> validateSingleLine(String input) {
   if (input.contains('\n')) {
