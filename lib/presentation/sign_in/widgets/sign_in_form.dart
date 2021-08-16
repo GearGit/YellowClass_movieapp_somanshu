@@ -25,7 +25,6 @@ class SignInForm extends StatelessWidget {
                         'Invalid email and password combination',
                   )).show(context);
                 }, (_) {
-                  // AutoRouter.of(context).replace(AppOverviewRoute());
                   AutoRouter.of(context).replace(MoviesOverviewRoute());
                   getIt<AuthBloc>().add(const AuthEvent.authCheckRequested());
                 }));

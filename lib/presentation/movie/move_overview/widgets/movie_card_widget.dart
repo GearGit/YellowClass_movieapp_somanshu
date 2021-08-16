@@ -6,7 +6,7 @@ import 'package:movieapp/application/movie/movie_actor/movie_actor_bloc.dart';
 import 'package:movieapp/domain/movies/movie.dart';
 import 'package:movieapp/presentation/movie/movie_form/movie_form_page.dart';
 
-Widget buildMovieCard(BuildContext context, Movie movie,int index) {
+Widget buildMovieCard(BuildContext context, Movie movie,int index,bool isExpandedView) {
   final Movie _movie = movie;
   bool isImageNull = true;
   late Uint8List uint8list;
@@ -32,12 +32,13 @@ Widget buildMovieCard(BuildContext context, Movie movie,int index) {
               );
   return Padding(
     padding: const EdgeInsets.only(left: 12.0, right: 12.0,top: 16),
-    child:Card(
+    child: Card(
           elevation: 8,
           color: Colors.transparent,
-          child: Container(
+          child: isExpandedView ?
+          Container(
             height: 220,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
               color: Color.fromRGBO(36, 36, 36, 1)
             ),
@@ -87,56 +88,57 @@ Widget buildMovieCard(BuildContext context, Movie movie,int index) {
               ],
             ),
           )
-        //   Container(
-        //     decoration: BoxDecoration(
-        //       color: Theme.of(context).bottomAppBarColor,
-        //       borderRadius: const BorderRadius.all(Radius.circular(8)),
-        //     ),
-        //     child: ListTile(
-        //       leading:Container(
-        //         height:64,
-        //         width:64,
-        //         decoration: 
-        //         // boxDecorationWithoutImage
-        //         isImageNull ? boxDecorationWithoutImage : boxDecorationWithImage
-        //       ),
-        //       title: Text(
-        //         movie.name.getOrCrash(),
-        //         style: Theme.of(context)
-        //             .textTheme
-        //             .bodyText1!
-        //             .copyWith(fontWeight: FontWeight.w700),
-        //       ),
-        //       subtitle: 
-        //             Text(movie.director.getOrCrash(),
-        //                 style: Theme.of(context)
-        //                     .textTheme
-        //                     .bodyText2!
-        //                     .copyWith(fontWeight: FontWeight.w300)),
-        //       trailing: Row(
-        //         mainAxisSize: MainAxisSize.min,
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         children: [
-        //           IconButton(
-        //             onPressed: (){
-        //               showModalBottomSheet(
-        //                 context: context,
-        //                 useRootNavigator: true,
-        //                 builder: (context) => MovieFormPage(editedMovie: movie));
-        //             }, 
-        //             icon: const Icon(Icons.edit,color:Colors.green)
-        //           ),
-        //           IconButton(
-        //             onPressed: (){
-        //               final movieActorBloc = context.read<MovieActorBloc>();
-        //               _showDeletionDialog(context, movieActorBloc, _movie);
-        //             }, 
-        //             icon: const Icon(Icons.delete_forever,color:Colors.red)
-        //           ),
-        //         ],
-        //         ),
-        //     ),
-        //   ),
+          :
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).bottomAppBarColor,
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+            ),
+            child: ListTile(
+              leading:Container(
+                height:64,
+                width:64,
+                decoration: 
+                // boxDecorationWithoutImage
+                isImageNull ? boxDecorationWithoutImage : boxDecorationWithImage
+              ),
+              title: Text(
+                movie.name.getOrCrash(),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(fontWeight: FontWeight.w700),
+              ),
+              subtitle: 
+                    Text(movie.director.getOrCrash(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText2!
+                            .copyWith(fontWeight: FontWeight.w300)),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: (){
+                      showModalBottomSheet(
+                        context: context,
+                        useRootNavigator: true,
+                        builder: (context) => MovieFormPage(editedMovie: movie));
+                    }, 
+                    icon: const Icon(Icons.edit,color:Colors.green)
+                  ),
+                  IconButton(
+                    onPressed: (){
+                      final movieActorBloc = context.read<MovieActorBloc>();
+                      _showDeletionDialog(context, movieActorBloc, _movie);
+                    }, 
+                    icon: const Icon(Icons.delete_forever,color:Colors.red)
+                  ),
+                ],
+                ),
+            ),
+          ),
         ), 
   );
 }

@@ -30,6 +30,7 @@ dependencies:
   another_flushbar: ^1.10.22
   flutter_hooks: ^0.18.0
   image_picker: ^0.8.3+2
+  flutter_launcher_icons: ^0.9.1
   
 dev_dependencies:
   injectable_generator: ^1.4.1
@@ -40,8 +41,12 @@ dev_dependencies:
   lint: ^1.5.3
   
 flutter:
-
   uses-material-design: true
   assets:
     - assets/
     - assets/icons/
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo.png"
