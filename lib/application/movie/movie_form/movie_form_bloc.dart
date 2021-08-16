@@ -44,7 +44,13 @@ class MovieFormBloc extends Bloc<MovieFormEvent, MovieFormState> {
       );
     }, imageSelected: (e) async* {
       yield state.copyWith(
+        showImageError: false,
         movie: state.movie.copyWith(image: MovieImage(e.image)),
+        saveFailureOrSuccessOption: none(),
+      );
+    }, imageNotSelected: (e) async* {
+      yield state.copyWith(
+        showImageError: true,
         saveFailureOrSuccessOption: none(),
       );
     }, saved: (e) async* {
@@ -57,19 +63,19 @@ class MovieFormBloc extends Bloc<MovieFormEvent, MovieFormState> {
         failureOrSuccess = state.isEditing
             ? await _movieRepository.update(state.movie)
             : await _movieRepository.create(state.movie);
-      }
         yield state.copyWith(
           isSaving: true,
           showErrorMessages: AutovalidateMode.always,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess),
         );
-      // else{
-      //   yield state.copyWith(
-      //     isSaving: false,
-      //     showErrorMessages: AutovalidateMode.always,
-      //     saveFailureOrSuccessOption: none(),
-      //   );
-      // }
+      }
+      else{
+        yield state.copyWith(
+          isSaving: false,
+          showErrorMessages: AutovalidateMode.always,
+          saveFailureOrSuccessOption: none(),
+        );
+      }
     });
   }
 }

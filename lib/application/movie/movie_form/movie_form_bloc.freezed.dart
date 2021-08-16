@@ -40,6 +40,10 @@ class _$MovieFormEventTearOff {
     );
   }
 
+  _ImageNotSelected imageNotSelected() {
+    return const _ImageNotSelected();
+  }
+
   _Saved saved() {
     return const _Saved();
   }
@@ -56,6 +60,7 @@ mixin _$MovieFormEvent {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +70,7 @@ mixin _$MovieFormEvent {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -75,6 +81,7 @@ mixin _$MovieFormEvent {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +91,7 @@ mixin _$MovieFormEvent {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -178,6 +186,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) {
     return initialized(initialMovieOption);
@@ -190,6 +199,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -206,6 +216,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
@@ -218,6 +229,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -306,6 +318,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) {
     return nameChanged(nameStr);
@@ -318,6 +331,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -334,6 +348,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return nameChanged(this);
@@ -346,6 +361,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -435,6 +451,7 @@ class _$_DirectorChanged implements _DirectorChanged {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) {
     return directorChanged(directorStr);
@@ -447,6 +464,7 @@ class _$_DirectorChanged implements _DirectorChanged {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -463,6 +481,7 @@ class _$_DirectorChanged implements _DirectorChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return directorChanged(this);
@@ -475,6 +494,7 @@ class _$_DirectorChanged implements _DirectorChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -563,6 +583,7 @@ class _$_ImageSelected implements _ImageSelected {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) {
     return imageSelected(image);
@@ -575,6 +596,7 @@ class _$_ImageSelected implements _ImageSelected {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -591,6 +613,7 @@ class _$_ImageSelected implements _ImageSelected {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return imageSelected(this);
@@ -603,6 +626,7 @@ class _$_ImageSelected implements _ImageSelected {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -620,6 +644,108 @@ abstract class _ImageSelected implements MovieFormEvent {
   @JsonKey(ignore: true)
   _$ImageSelectedCopyWith<_ImageSelected> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ImageNotSelectedCopyWith<$Res> {
+  factory _$ImageNotSelectedCopyWith(
+          _ImageNotSelected value, $Res Function(_ImageNotSelected) then) =
+      __$ImageNotSelectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ImageNotSelectedCopyWithImpl<$Res>
+    extends _$MovieFormEventCopyWithImpl<$Res>
+    implements _$ImageNotSelectedCopyWith<$Res> {
+  __$ImageNotSelectedCopyWithImpl(
+      _ImageNotSelected _value, $Res Function(_ImageNotSelected) _then)
+      : super(_value, (v) => _then(v as _ImageNotSelected));
+
+  @override
+  _ImageNotSelected get _value => super._value as _ImageNotSelected;
+}
+
+/// @nodoc
+
+class _$_ImageNotSelected implements _ImageNotSelected {
+  const _$_ImageNotSelected();
+
+  @override
+  String toString() {
+    return 'MovieFormEvent.imageNotSelected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ImageNotSelected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Movie> initialMovieOption) initialized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String directorStr) directorChanged,
+    required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
+    required TResult Function() saved,
+  }) {
+    return imageNotSelected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Movie> initialMovieOption)? initialized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String directorStr)? directorChanged,
+    TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (imageNotSelected != null) {
+      return imageNotSelected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_DirectorChanged value) directorChanged,
+    required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return imageNotSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_DirectorChanged value)? directorChanged,
+    TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (imageNotSelected != null) {
+      return imageNotSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImageNotSelected implements MovieFormEvent {
+  const factory _ImageNotSelected() = _$_ImageNotSelected;
 }
 
 /// @nodoc
@@ -663,6 +789,7 @@ class _$_Saved implements _Saved {
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String directorStr) directorChanged,
     required TResult Function(Uint8List image) imageSelected,
+    required TResult Function() imageNotSelected,
     required TResult Function() saved,
   }) {
     return saved();
@@ -675,6 +802,7 @@ class _$_Saved implements _Saved {
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String directorStr)? directorChanged,
     TResult Function(Uint8List image)? imageSelected,
+    TResult Function()? imageNotSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -691,6 +819,7 @@ class _$_Saved implements _Saved {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DirectorChanged value) directorChanged,
     required TResult Function(_ImageSelected value) imageSelected,
+    required TResult Function(_ImageNotSelected value) imageNotSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -703,6 +832,7 @@ class _$_Saved implements _Saved {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DirectorChanged value)? directorChanged,
     TResult Function(_ImageSelected value)? imageSelected,
+    TResult Function(_ImageNotSelected value)? imageNotSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -726,12 +856,14 @@ class _$MovieFormStateTearOff {
       required AutovalidateMode showErrorMessages,
       required bool isEditing,
       required bool isSaving,
+      required bool showImageError,
       required Option<Either<MovieFailure, Unit>> saveFailureOrSuccessOption}) {
     return _MovieFormState(
       movie: movie,
       showErrorMessages: showErrorMessages,
       isEditing: isEditing,
       isSaving: isSaving,
+      showImageError: showImageError,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption,
     );
   }
@@ -746,6 +878,7 @@ mixin _$MovieFormState {
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get showImageError => throw _privateConstructorUsedError;
   Option<Either<MovieFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -764,6 +897,7 @@ abstract class $MovieFormStateCopyWith<$Res> {
       AutovalidateMode showErrorMessages,
       bool isEditing,
       bool isSaving,
+      bool showImageError,
       Option<Either<MovieFailure, Unit>> saveFailureOrSuccessOption});
 
   $MovieCopyWith<$Res> get movie;
@@ -784,6 +918,7 @@ class _$MovieFormStateCopyWithImpl<$Res>
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
+    Object? showImageError = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -802,6 +937,10 @@ class _$MovieFormStateCopyWithImpl<$Res>
       isSaving: isSaving == freezed
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showImageError: showImageError == freezed
+          ? _value.showImageError
+          : showImageError // ignore: cast_nullable_to_non_nullable
               as bool,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
           ? _value.saveFailureOrSuccessOption
@@ -830,6 +969,7 @@ abstract class _$MovieFormStateCopyWith<$Res>
       AutovalidateMode showErrorMessages,
       bool isEditing,
       bool isSaving,
+      bool showImageError,
       Option<Either<MovieFailure, Unit>> saveFailureOrSuccessOption});
 
   @override
@@ -853,6 +993,7 @@ class __$MovieFormStateCopyWithImpl<$Res>
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
+    Object? showImageError = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_MovieFormState(
@@ -872,6 +1013,10 @@ class __$MovieFormStateCopyWithImpl<$Res>
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
               as bool,
+      showImageError: showImageError == freezed
+          ? _value.showImageError
+          : showImageError // ignore: cast_nullable_to_non_nullable
+              as bool,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -888,6 +1033,7 @@ class _$_MovieFormState implements _MovieFormState {
       required this.showErrorMessages,
       required this.isEditing,
       required this.isSaving,
+      required this.showImageError,
       required this.saveFailureOrSuccessOption});
 
   @override
@@ -899,11 +1045,13 @@ class _$_MovieFormState implements _MovieFormState {
   @override
   final bool isSaving;
   @override
+  final bool showImageError;
+  @override
   final Option<Either<MovieFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'MovieFormState(movie: $movie, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'MovieFormState(movie: $movie, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, showImageError: $showImageError, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -921,6 +1069,9 @@ class _$_MovieFormState implements _MovieFormState {
             (identical(other.isSaving, isSaving) ||
                 const DeepCollectionEquality()
                     .equals(other.isSaving, isSaving)) &&
+            (identical(other.showImageError, showImageError) ||
+                const DeepCollectionEquality()
+                    .equals(other.showImageError, showImageError)) &&
             (identical(other.saveFailureOrSuccessOption,
                     saveFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -935,6 +1086,7 @@ class _$_MovieFormState implements _MovieFormState {
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isEditing) ^
       const DeepCollectionEquality().hash(isSaving) ^
+      const DeepCollectionEquality().hash(showImageError) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -949,6 +1101,7 @@ abstract class _MovieFormState implements MovieFormState {
       required AutovalidateMode showErrorMessages,
       required bool isEditing,
       required bool isSaving,
+      required bool showImageError,
       required Option<Either<MovieFailure, Unit>>
           saveFailureOrSuccessOption}) = _$_MovieFormState;
 
@@ -960,6 +1113,8 @@ abstract class _MovieFormState implements MovieFormState {
   bool get isEditing => throw _privateConstructorUsedError;
   @override
   bool get isSaving => throw _privateConstructorUsedError;
+  @override
+  bool get showImageError => throw _privateConstructorUsedError;
   @override
   Option<Either<MovieFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;

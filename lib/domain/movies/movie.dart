@@ -40,13 +40,14 @@ abstract class Movie implements _$Movie {
       id: movie.id.getOrCrash(),
       name: movie.name.getOrCrash(),
       director: movie.director.getOrCrash(),
-      image: movie.image.value
+      image: movie.image.getOrCrash()
     );  
   }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return name.failureOrUnit
         .andThen(director.failureOrUnit)
+        .andThen(image.failureOrUnit)
         .fold((l) => some(l), (r) => none());
   }
 }

@@ -39,6 +39,12 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  InvalidUint8List<T> invalidUint8List<T>({required T failedValue}) {
+    return InvalidUint8List<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 /// @nodoc
@@ -54,6 +60,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +69,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +79,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +88,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -190,6 +200,7 @@ class _$EmptyString<T> implements EmptyString<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
   }) {
     return emptyString(failedValue);
   }
@@ -201,6 +212,7 @@ class _$EmptyString<T> implements EmptyString<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (emptyString != null) {
@@ -216,6 +228,7 @@ class _$EmptyString<T> implements EmptyString<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
   }) {
     return emptyString(this);
   }
@@ -227,6 +240,7 @@ class _$EmptyString<T> implements EmptyString<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (emptyString != null) {
@@ -319,6 +333,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
   }) {
     return multiline(failedValue);
   }
@@ -330,6 +345,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -345,6 +361,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
   }) {
     return multiline(this);
   }
@@ -356,6 +373,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -448,6 +466,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
   }) {
     return invalidEmail(failedValue);
   }
@@ -459,6 +478,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -474,6 +494,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
   }) {
     return invalidEmail(this);
   }
@@ -485,6 +506,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -577,6 +599,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
   }) {
     return shortPassword(failedValue);
   }
@@ -588,6 +611,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -603,6 +627,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
   }) {
     return shortPassword(this);
   }
@@ -614,6 +639,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -631,5 +657,139 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidUint8ListCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidUint8ListCopyWith(
+          InvalidUint8List<T> value, $Res Function(InvalidUint8List<T>) then) =
+      _$InvalidUint8ListCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$InvalidUint8ListCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidUint8ListCopyWith<T, $Res> {
+  _$InvalidUint8ListCopyWithImpl(
+      InvalidUint8List<T> _value, $Res Function(InvalidUint8List<T>) _then)
+      : super(_value, (v) => _then(v as InvalidUint8List<T>));
+
+  @override
+  InvalidUint8List<T> get _value => super._value as InvalidUint8List<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(InvalidUint8List<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidUint8List<T> implements InvalidUint8List<T> {
+  const _$InvalidUint8List({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidUint8List(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidUint8List<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidUint8ListCopyWith<T, InvalidUint8List<T>> get copyWith =>
+      _$InvalidUint8ListCopyWithImpl<T, InvalidUint8List<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) emptyString,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidUint8List,
+  }) {
+    return invalidUint8List(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? emptyString,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidUint8List,
+    required TResult orElse(),
+  }) {
+    if (invalidUint8List != null) {
+      return invalidUint8List(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmptyString<T> value) emptyString,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidUint8List<T> value) invalidUint8List,
+  }) {
+    return invalidUint8List(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmptyString<T> value)? emptyString,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidUint8List<T> value)? invalidUint8List,
+    required TResult orElse(),
+  }) {
+    if (invalidUint8List != null) {
+      return invalidUint8List(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidUint8List<T> implements ValueFailure<T> {
+  const factory InvalidUint8List({required T failedValue}) =
+      _$InvalidUint8List<T>;
+
+  @override
+  T get failedValue => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $InvalidUint8ListCopyWith<T, InvalidUint8List<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

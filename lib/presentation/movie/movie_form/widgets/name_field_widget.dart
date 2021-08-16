@@ -20,7 +20,7 @@ class NameField extends HookWidget {
         textEditingController.text = state.movie.name.getOrCrash();
       },
       child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           child: Directionality(
             textDirection: Directionality.of(context),
             child: TextFormField(

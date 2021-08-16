@@ -24,7 +24,7 @@ abstract class MovieDto with _$MovieDto {
       id: movie.id.getOrCrash(),
       name: movie.name.getOrCrash(),
       director: movie.director.getOrCrash(),
-      image: movie.image.value,
+      image: movie.image.getOrCrash(),
     );
   }
 

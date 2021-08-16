@@ -9,5 +9,7 @@ abstract class MovieFormEvent with _$MovieFormEvent {
       _DirectorChanged;
   const factory MovieFormEvent.imageSelected(Uint8List image) =
       _ImageSelected;
+  const factory MovieFormEvent.imageNotSelected() =
+      _ImageNotSelected;
   const factory MovieFormEvent.saved() = _Saved;
 }

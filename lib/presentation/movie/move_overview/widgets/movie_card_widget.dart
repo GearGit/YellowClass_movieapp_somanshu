@@ -11,7 +11,7 @@ Widget buildMovieCard(BuildContext context, Movie movie,int index) {
   bool isImageNull = true;
   late Uint8List uint8list;
   try{
-    uint8list = _movie.image.value;
+    uint8list = _movie.image.getOrCrash();
     isImageNull = false;
   }on Exception catch(e){
     isImageNull = true;

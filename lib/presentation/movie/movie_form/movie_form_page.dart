@@ -60,7 +60,6 @@ class _MovieFormPageState extends State<MovieFormPage> {
         },
         buildWhen: (p, c) => p.isSaving != c.isSaving,
         builder: (context, state) {
-          print("editedMovie : ${widget.editedMovie}");
           return Stack(
             children: <Widget>[
               MovieFormPageScaffold(editedMovie: widget.editedMovie),
@@ -112,17 +111,19 @@ class SavingInProgressOverlay extends StatelessWidget {
   }
 }
 
-class MovieFormPageScaffold extends StatelessWidget {
+class MovieFormPageScaffold extends StatefulWidget {
   final Movie? editedMovie;
   const MovieFormPageScaffold({Key? key, this.editedMovie})
       : super(key: key);
 
   @override
+  _MovieFormPageScaffoldState createState() => _MovieFormPageScaffoldState();
+}
+
+class _MovieFormPageScaffoldState extends State<MovieFormPageScaffold> {
+  @override
   Widget build(BuildContext context) {
     late String title;
-    late String imagePicketText;
-    late bool editingOrNot;
-
     return Padding(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom + 20),
@@ -130,7 +131,11 @@ class MovieFormPageScaffold extends StatelessWidget {
         buildWhen: (p, c) =>
             p.isEditing != c.isEditing || p.isSaving != c.isSaving,
         builder: (context, state) {
+          
           title = state.isEditing ? 'Edit movie' : 'Add movie';
+          String errorInImage = "";
+         
+
           return ListView(
             children:[
               const SizedBox(height: 18),
@@ -161,15 +166,32 @@ class MovieFormPageScaffold extends StatelessWidget {
                       size: 36,
                     ),
                     onPressed: () {
-                      context
-                          .read<MovieFormBloc>()
-                          .add(const MovieFormEvent.saved());
+                      context.read<MovieFormBloc>()
+                        .state
+                        .movie
+                        .image
+                        .value
+                        .fold(
+                          (f) => f.maybeMap(
+                            invalidUint8List: (f) => {
+                              FlushbarHelper.createError(
+                                message: 'Please select an image',).show(context)
+                            },
+                            orElse: () => {
+                              FlushbarHelper.createError(
+                                message: 'Please select an image').show(context)},
+                            ), 
+                          (r) => {
+                          context
+                            .read<MovieFormBloc>()
+                            .add(const MovieFormEvent.saved()),
+
+                          }
+                        );
                     },
                   )
-                  // else
-                  // Container(),
                 ]),
-                const SizedBox(height: 18),
+                const SizedBox(height: 12),
                 BlocBuilder<MovieFormBloc, MovieFormState>(
                   buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
                   builder: (context, state) {
@@ -182,7 +204,13 @@ class MovieFormPageScaffold extends StatelessWidget {
                           DirectorField(node: focusNode),
                           ImagePickerWidget(
                             isEditing:state.isEditing,
-                            imageBytes:context.read<MovieFormBloc>().state.movie.image.value
+                            imageBytes:
+                              context.read<MovieFormBloc>()
+                                .state
+                                .movie
+                                .image
+                                .value
+                                .fold((l) => Uint8List(0), (r) => r)
                             ),
                           // ImagePickerWidget()
                         ],

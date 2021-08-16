@@ -22,15 +22,3 @@ void main() async {
   configureInjection(Environment.prod);
   runApp(AppWidget());
 }
-
-// Uint8List imageByteArray = await ImageHelper.compressImage(_image);
-// class ImageHelper {
-//   static Future<Uint8List> compressImage(File image) async {
-//     return await FlutterImageCompress.compressWithFile(
-//       image.absolute.path,
-//       minHeight: 1280,
-//       minWidth: 1980,
-//       quality: 40,
-//     );
-//   }
-// }

@@ -7,6 +7,7 @@ abstract class MovieFormState with _$MovieFormState {
     required AutovalidateMode showErrorMessages,
     required bool isEditing,
     required bool isSaving,
+    required bool showImageError,
     required Option<Either<MovieFailure, Unit>> saveFailureOrSuccessOption,
   }) = _MovieFormState;
 
@@ -15,6 +16,7 @@ abstract class MovieFormState with _$MovieFormState {
         showErrorMessages: AutovalidateMode.disabled,
         isEditing: false,
         isSaving: false,
+        showImageError: false,
         saveFailureOrSuccessOption: none(),
       );
 }
